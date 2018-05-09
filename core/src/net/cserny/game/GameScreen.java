@@ -1,8 +1,10 @@
 package net.cserny.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -19,6 +21,8 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_HEIGHT = 640;
     private static final float GAP_BETWEEN_FLOWERS = 200f;
 
+    private final FlapeeBeeGame game;
+
     private int score = 0;
     private ShapeRenderer shapeRenderer;
     private BitmapFont font;
@@ -33,6 +37,10 @@ public class GameScreen extends ScreenAdapter {
     private Texture flowerBottom;
     private Texture flowerTop;
     private Texture flapeeTexture;
+
+    public GameScreen(FlapeeBeeGame game) {
+        this.game = game;
+    }
 
     @Override
     public void resize(int width, int height) {
@@ -49,10 +57,10 @@ public class GameScreen extends ScreenAdapter {
         batch = new SpriteBatch();
         font = new BitmapFont();
         layout = new GlyphLayout();
-        background = new Texture("bg.png");
-        flowerBottom = new Texture("flowerBottom.png");
-        flowerTop = new Texture("flowerTop.png");
-        flapeeTexture = new Texture("bee.png");
+        background = game.getAssetManager().get("bg.png");
+        flowerBottom = game.getAssetManager().get("flowerBottom.png");
+        flowerTop = game.getAssetManager().get("flowerTop.png");
+        flapeeTexture = game.getAssetManager().get("bee.png");
         flapee = new Flapee(flapeeTexture);
         flapee.setPosition(WORLD_WIDTH / 4, WORLD_HEIGHT / 2);
     }

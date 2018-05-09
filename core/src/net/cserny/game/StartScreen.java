@@ -19,7 +19,7 @@ public class StartScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 480;
     private static final float WORLD_HEIGHT = 640;
 
-    private final Game game;
+    private final FlapeeBeeGame game;
 
     private Stage stage;
     private Texture backgroundTexture;
@@ -27,7 +27,7 @@ public class StartScreen extends ScreenAdapter {
     private Texture playPressedTexture;
     private Texture titleTexture;
 
-    public StartScreen(Game game) {
+    public StartScreen(FlapeeBeeGame game) {
         this.game = game;
     }
 
@@ -49,7 +49,7 @@ public class StartScreen extends ScreenAdapter {
             @Override
             public void tap(InputEvent event, float x, float y, int count, int button) {
                 super.tap(event, x, y, count, button);
-                game.setScreen(new GameScreen());
+                game.setScreen(new LoadingScreen(game));
                 dispose();
             }
         });
