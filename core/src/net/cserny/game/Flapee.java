@@ -22,8 +22,8 @@ public class Flapee {
     private float ySpeed = 0;
     private float animationTimer = 0;
 
-    public Flapee(Texture flapeeTexture) {
-        TextureRegion[][] textureRegions = new TextureRegion(flapeeTexture).split(TILE_WIDTH, TILE_HEIGHT);
+    public Flapee(TextureRegion flapeeTexture) {
+        TextureRegion[][] textureRegions = flapeeTexture.split(TILE_WIDTH, TILE_HEIGHT);
         animation = new Animation<TextureRegion>(FRAME_DURATION, textureRegions[0][0], textureRegions[0][1]);
         animation.setPlayMode(Animation.PlayMode.LOOP);
 

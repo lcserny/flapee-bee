@@ -3,6 +3,7 @@ package net.cserny.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -39,10 +40,11 @@ public class LoadingScreen extends ScreenAdapter {
         viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         shapeRenderer = new ShapeRenderer();
 
-        game.getAssetManager().load("bg.png", Texture.class);
-        game.getAssetManager().load("flowerBottom.png", Texture.class);
-        game.getAssetManager().load("flowerTop.png", Texture.class);
-        game.getAssetManager().load("bee.png", Texture.class);
+        game.getAssetManager().load("flapee_bee_assets.atlas", TextureAtlas.class);
+//        game.getAssetManager().load("bg.png", Texture.class);
+//        game.getAssetManager().load("flowerBottom.png", Texture.class);
+//        game.getAssetManager().load("flowerTop.png", Texture.class);
+//        game.getAssetManager().load("bee.png", Texture.class);
     }
 
     @Override

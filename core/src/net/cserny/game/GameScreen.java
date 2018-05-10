@@ -6,9 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
@@ -33,10 +31,10 @@ public class GameScreen extends ScreenAdapter {
     private Flapee flapee;
     private Array<Flower> flowers = new Array<Flower>();
 
-    private Texture background;
-    private Texture flowerBottom;
-    private Texture flowerTop;
-    private Texture flapeeTexture;
+    private TextureRegion background;
+    private TextureRegion flowerBottom;
+    private TextureRegion flowerTop;
+    private TextureRegion flapeeTexture;
 
     public GameScreen(FlapeeBeeGame game) {
         this.game = game;
@@ -52,15 +50,19 @@ public class GameScreen extends ScreenAdapter {
         camera = new OrthographicCamera();
         camera.position.set(WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 0);
         camera.update();
+
         viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         shapeRenderer = new ShapeRenderer();
         batch = new SpriteBatch();
         font = new BitmapFont();
         layout = new GlyphLayout();
-        background = game.getAssetManager().get("bg.png");
-        flowerBottom = game.getAssetManager().get("flowerBottom.png");
-        flowerTop = game.getAssetManager().get("flowerTop.png");
-        flapeeTexture = game.getAssetManager().get("bee.png");
+
+        TextureAtlas atlas = game.getAssetManager().get("flapee_bee_assets.atlas");
+        background = atlas.findRegion("bg");
+        flowerBottom = atlas.findRegion("flowerBottom");
+        flowerTop = atlas.findRegion("flowerTop");
+        flapeeTexture = atlas.findRegion("bee");
+
         flapee = new Flapee(flapeeTexture);
         flapee.setPosition(WORLD_WIDTH / 4, WORLD_HEIGHT / 2);
     }
