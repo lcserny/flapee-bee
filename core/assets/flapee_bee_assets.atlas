@@ -20,7 +20,7 @@ bee
   index: -1
 beebnw
   rotate: false
-  xy: 698, 843
+  xy: 484, 426
   size: 40, 31
   orig: 40, 31
   offset: 0, 0
@@ -44,6 +44,13 @@ flowerTop
   xy: 591, 573
   size: 105, 447
   orig: 105, 447
+  offset: 0, 0
+  index: -1
+font
+  rotate: false
+  xy: 698, 842
+  size: 256, 32
+  orig: 256, 32
   offset: 0, 0
   index: -1
 play

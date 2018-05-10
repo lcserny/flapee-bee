@@ -2,7 +2,9 @@ package net.cserny.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.assets.loaders.BitmapFontLoader;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -33,6 +35,10 @@ public class LoadingScreen extends ScreenAdapter {
 
     @Override
     public void show() {
+        BitmapFontLoader.BitmapFontParameter bitmapFontParameter = new BitmapFontLoader.BitmapFontParameter();
+        bitmapFontParameter.atlasName = "flapee_bee_assets.atlas";
+        game.getAssetManager().load("font.fnt", BitmapFont.class, bitmapFontParameter);
+
         camera = new OrthographicCamera();
         camera.position.set(WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 0);
         camera.update();

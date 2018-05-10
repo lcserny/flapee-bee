@@ -54,8 +54,9 @@ public class GameScreen extends ScreenAdapter {
         viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         shapeRenderer = new ShapeRenderer();
         batch = new SpriteBatch();
-        font = new BitmapFont();
         layout = new GlyphLayout();
+
+        font = game.getAssetManager().get("font.fnt");
 
         TextureAtlas atlas = game.getAssetManager().get("flapee_bee_assets.atlas");
         background = atlas.findRegion("bg");
